@@ -1934,6 +1934,32 @@ angular.module("dashboards").controller("FbfController", [
         exportService.exportAsCSV(d.Rapportage, meta_label);
       };
 
+      //Export to PDF function
+      $scope.export_pdf = function() {
+        var canvas = document.getElementById("map-chart");
+        console.log(canvas);
+        var context = canvas[0].getContext("2d");
+        context.beginPath();
+        context.moveTo(170, 80);
+        context.bezierCurveTo(130, 100, 130, 150, 230, 150);
+        context.bezierCurveTo(250, 180, 320, 180, 340, 150);
+        context.bezierCurveTo(420, 150, 420, 120, 390, 100);
+        context.bezierCurveTo(430, 40, 370, 30, 340, 50);
+        context.bezierCurveTo(320, 5, 250, 20, 250, 50);
+        context.bezierCurveTo(200, 5, 150, 20, 170, 80);
+        context.closePath();
+        context.lineWidth = 5;
+        context.fillStyle = "#8ED6FF";
+        context.fill();
+        context.strokeStyle = "#0000ff";
+        context.stroke();
+
+        var dataURL = canvas[0].toDataURL();
+        console.log(dataURL);
+
+        exportService.exportAsPDF(dataURL);
+      };
+
       $scope.share_URL = function() {
         $scope.shareable_URL = shareService.createFullUrl(
           $scope.country_code,

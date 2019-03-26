@@ -1477,6 +1477,14 @@ angular.module("dashboards").controller("PriorityIndexController", [
         exportService.exportAsCSV(d.Rapportage, meta_label);
       };
 
+      //Export to PDF function
+      $scope.export_pdf = function() {
+        var canvas = document.getElementById("map-chart");
+        var dataURL = canvas.toDataURL();
+        print(dataURL);
+        exportService.exportAsPDF(dataURL);
+      };
+
       $scope.share_URL = function() {
         $scope.shareable_URL = shareService.createFullUrl(
           $scope.country_code,

@@ -96,7 +96,7 @@
             <li
               role="separator"
               class="divider"
-              ng-show="fnExportCsv || fnExportGeojson"
+              ng-show="fnExportCsv || fnExportGeojson || fnExportPdf"
             ></li>
             <li ng-show="fnExportCsv">
               <a
@@ -116,6 +116,16 @@
                 ng-click="fnExportGeojson()"
               >
                 {{ "export_geojson" | translate }}
+              </a>
+            </li>
+            <li ng-show="fnExportPdf">
+              <a
+                href=""
+                role="button"
+                aria-haspopup="true"
+                ng-click="fnExportPdf()"
+              >
+                {{ "export_pdf" | translate }}
               </a>
             </li>
           </ul>

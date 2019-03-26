@@ -108,9 +108,26 @@ angular.module("dashboards").factory("exportService", [
       triggerDownload(exportData, "export.json", "application/json");
     }
 
+    /**
+     *
+     */
+    function createPDF() {}
+
+    /**
+     *
+     * @param {Object} data
+     */
+    function exportAsPDF(dataURL) {
+      console.log("inside");
+      var exportData = createPDF(dataURL);
+
+      triggerDownload(exportData, "export.pdf", "image/pdf");
+    }
+
     return {
       exportAsCSV: exportAsCSV,
       exportAsGeoJSON: exportAsGeoJSON,
+      exportAsPDF: exportAsPDF,
     };
   },
 ]);

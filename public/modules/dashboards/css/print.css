@@ -1,0 +1,29 @@
+@media print {
+  .profile-item {
+    color: black;
+    text-shadow: -1px -1px 0px #fff, 1px -1px 0px #fff, -1px 1px 0 #fff,
+      1px 1px 0 #fff !important;
+    position: relative !important;
+  }
+  .container-fluid {
+    display: inline;
+  }
+
+  .navbar-brand > img {
+    display: block !important;
+  }
+
+  .zoom-level-nav-wrapper,
+  .debug,
+  #accordion,
+  #lightbulb,
+  .btn-modal,
+  .leaflet-bottom,
+  .leaflet-right {
+    display: none;
+  }
+
+  .navbar-brand--logo {
+    display: inline;
+  }
+}

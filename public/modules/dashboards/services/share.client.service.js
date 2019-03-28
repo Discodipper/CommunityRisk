@@ -24,6 +24,9 @@ angular.module("dashboards").factory("shareService", [
       var separator = currentUrl.indexOf("?") !== -1 ? "&" : "?";
       var urlParameters = "country=" + country;
 
+      // The order of parameters in the URL is important,
+      // as they will be used IN ORDER, NOT by name.
+
       if (admlevel) {
         urlParameters += "&admlevel=" + admlevel;
       }
@@ -60,14 +63,11 @@ angular.module("dashboards").factory("shareService", [
       return location.href + "?country=" + countryCode;
     }
 
-    function copyToClipboard(text) {
-      var tempInput = document.createElement("input");
+    function copyToClipboard() {
+      var containerElement = document.getElementById("share-url-container");
 
-      document.body.append(tempInput);
-      tempInput.value = text;
-      tempInput.select();
+      containerElement.select();
       document.execCommand("copy");
-      tempInput.parentNode.removeChild(tempInput);
     }
 
     return {
